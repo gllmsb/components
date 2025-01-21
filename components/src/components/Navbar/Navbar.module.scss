@@ -1,0 +1,85 @@
+// Variables for colors and responsive design
+$primary-color: #333;
+$secondary-color: #fff;
+$mobile-breakpoint: 768px;
+
+.navbar {
+  width: 100%;
+  background-color: $primary-color;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+
+  .navbarContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $secondary-color;
+    text-decoration: none;
+  }
+
+  .navLinks {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: $secondary-color;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: gray;
+      }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      border-top: 2px solid $secondary-color;
+      background-color: $primary-color;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+      &.open {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .burgerMenu {
+    display: none;
+    cursor: pointer;
+    color: $secondary-color;
+    transition: transform 0.3s ease-in-out;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: block;
+    }
+
+    &.open {
+      transform: rotate(90deg);
+    }
+  }
+}
